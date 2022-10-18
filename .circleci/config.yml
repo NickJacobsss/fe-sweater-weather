@@ -1,0 +1,29 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
+
+jobs:
+  build:
+    working_directory: ~/fe-sweater-weather
+    docker:
+      - image: circleci/ruby:2.7.4
+        environment:
+          PGHOST: localhost
+          PGUSER: fe-sweater-weather
+          RAILS_ENV: test
+      - image: postgres:13.2
+        environment:
+          POSTGRES_USER: fe-sweater-weather
+          POSTGRES_DB: fe-sweater-weather_test
+          POSTGRES_PASSWORD:
+    steps:
+      - checkout
+      - run:
+          name: fe-sweater-weather
+          command: bundle -v
+      - ruby/bundle-install
+
+      - checkout
+      - run: bundle install --path vendor/bundle
+      - run: bundle exec rake db:migrate
+      - run: bundle exec rspec
