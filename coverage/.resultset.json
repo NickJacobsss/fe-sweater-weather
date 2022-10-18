@@ -1,0 +1,21 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/nick/Turing/postgrad/fe-sweater-weather/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/nick/Turing/postgrad/fe-sweater-weather/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1666108849
+  }
+}
