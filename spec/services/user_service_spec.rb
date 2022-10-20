@@ -10,7 +10,6 @@ RSpec.describe "User Service" do
     }
 
     user = UserService.create_user(user_data_hash)
-      binding.pry
     expect(user).to include :error
     expect(user[:error]).to eq("Email has already been taken")
   end
