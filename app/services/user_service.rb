@@ -12,4 +12,12 @@ class UserService
       end
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.login_user(user_data)
+    response = connection.post('sessions') do |user|
+      user.params[:email] = user_data[:email]
+      user.params[:password] = user_data[:password]
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
